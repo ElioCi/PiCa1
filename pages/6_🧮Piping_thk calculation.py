@@ -122,7 +122,7 @@ diametri_df = pd.read_csv("files/diametri.csv", names=["NPS"])
 ext_dia_df = pd.read_csv("files/ExtDia.csv", delimiter=";")
 tolleranze_df = pd.read_csv("files/Tolerance.csv", delimiter=";")
 
-thk_com_df = pd.read_csv("files/dia_thk.csv", delimiter=";", index_col=0)
+thk_com_df = pd.read_csv("files/Dia_thk.csv", delimiter=";", index_col=0)
 thk_com_df.columns = thk_com_df.columns.str.strip()
 thk_com_df = thk_com_df.apply(lambda col: col.astype(str).str.replace(",", ".")).astype(float)
 
@@ -342,4 +342,5 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
