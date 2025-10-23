@@ -21,7 +21,7 @@ with st.expander("🆘 Help"):
 n_max = 3
 
 # === Caricamento file rating/materiali ===
-df_comp = pd.read_csv("files/Rating_desc.csv", sep=";")
+df_comp = pd.read_csv("files/Rating_Desc.csv", sep=";")
 component = df_comp["cmp_material"].dropna().unique()
 ratings = ['150', '300', '400', '600', '900', '1500', '2500', '4500']
 
@@ -111,3 +111,4 @@ if checked == True:
     if st.button("💾 Save groups"):
         df_finaleComp.to_csv(file_path, index=False)
         st.success("Component groups saved successfully!")
+
