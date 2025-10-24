@@ -348,7 +348,7 @@ if st.session_state.export_results:
         #st.markdown(href, unsafe_allow_html=True)
         st.markdown(
             """
-            <a href="/static/report1.pdf" target="_blank">
+            <a href="static/report1.pdf" target="_blank">
             Test: apri il PDF direttamente
             </a>
             """,
@@ -373,6 +373,7 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
 
 
