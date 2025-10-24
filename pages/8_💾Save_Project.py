@@ -18,6 +18,15 @@ with st.expander("🆘 Help"):
 
     """)
 
+#    === Controllo accesso ===
+if 'prot' not in st.session_state:
+    st.session_state.prot = False
+    
+if st.session_state.prot == False:
+    st.info('unauthorized access')
+    st.stop()
+    
+
 dati_generali = pd.read_csv("files/DatiGenerali.csv")
 dati_piping = pd.read_csv("files/piping_groups.csv")
 dati_components = pd.read_csv("files/component_groups.csv")
@@ -60,6 +69,7 @@ else:
     st.dataframe(dati_temperatures)
      
     SalvaDati()
+
 
 
 
