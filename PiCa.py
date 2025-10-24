@@ -6,7 +6,8 @@ import requests
 import jwt
 from jwt import PyJWTError
 import time
-    
+
+st.set_page_config(page_title="Pica001 App", page_icon="⭕")
 if 'prot' not in st.session_state or not st.session_state.prot:
     st.session_state.prot = False
 
@@ -58,9 +59,7 @@ else:
 
 
 
-st.set_page_config(page_title="Pica01 App", page_icon="📊")
-    
- 
+
 st.markdown("---")
 st.markdown("<h1 style='text-align: center;'>⭕ PiCA - Piping Calculation</h1>", unsafe_allow_html=True)
 st.markdown("---")
@@ -114,4 +113,5 @@ button_html = """
 st.markdown(button_html, unsafe_allow_html=True)
  
 print ('prot', st.session_state.prot)
+
 
