@@ -74,6 +74,12 @@ st.markdown("---")
 col1, col2, col3 = st.columns(3)
 col1.page_link("https://enginapps.it", label="www.enginapps.it", icon="🏠")
 
+#    === Controllo accesso ===
+if st.session_state.prot == False:
+    st.info('unauthorized access')
+    st.stop()
+    
+
 sceltaNew = col3.radio("Select an option", options= ('New Project', 'Stored Project'))
 
 if 'newFlag' not in st.session_state:
@@ -169,4 +175,5 @@ st.info("-- ©️ App developed by ing. Pasquale Aurelio Cirillo - Release 1.0 2
 #else:
 #    st.page_link("pages/calculationSheet.py", label="New Calculation Sheet", icon="📝")
 #    st.markdown("click the button to open a new calculation sheet")
+
 
