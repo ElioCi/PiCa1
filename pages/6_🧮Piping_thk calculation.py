@@ -346,13 +346,22 @@ if st.session_state.export_results:
 
         #href = f'<a href="data:application/pdf;base64,{b64}" target="_blank">View Report</a>'
         #st.markdown(href, unsafe_allow_html=True)
-        st.components.v1.html(
-        """
-        <iframe src="/static/report1.pdf" width="100%" height="800" style="border:none;"></iframe>
-        """,
-        height=800,
-        scrolling=True
+        st.markdown(
+            """
+            <a href="/static/report1.pdf" target="_blank">
+            Test: apri il PDF direttamente
+            </a>
+            """,
+            unsafe_allow_html=True
         )
+        
+        #st.components.v1.html(
+        #"""
+        #<iframe src="/static/report1.pdf" width="100%" height="800" style="border:none;"></iframe>
+        #""",
+        #height=800,
+        #scrolling=True
+        #)
         
     #st.markdown("<hr style='border: 1px solid red;'>", unsafe_allow_html=True)
 
@@ -364,6 +373,7 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
 
 
