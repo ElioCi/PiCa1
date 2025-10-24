@@ -211,23 +211,28 @@ st.markdown(
 
 # Un solo pulsante con key e callback
 label = "👁️ Preview Report" if not st.session_state.show_pdf else "❌ Close Preview"
-st.button(label, on_click=toggle_pdf, key="toggle_pdf_btn")
+#st.button(label, on_click=toggle_pdf, key="toggle_pdf_btn")
 
 # Visualizza PDF se attivo
+st.session_state.show_pdf = True
+    
 if st.session_state.show_pdf:
-    with open("static/report2.pdf", "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode("utf-8")
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="500" type="application/pdf"></iframe>'
-        st.markdown(pdf_display, unsafe_allow_html=True)
+    pdf_path = "files/report2.pdf"
 
+    with open(pdf_path, "rb") as f:
+        st.download_button(
+            label="📄 Open Report in a new window",
+            data=f,
+            file_name="ReportRating.pdf",
+            mime="application/pdf"
+        )
 # Separatore linea rossa
 st.markdown(
     """
-    <hr style="border: 1px solid red;">
+    <hr style="border: 0.5px solid red;">
     """,
     unsafe_allow_html=True
 )
-#st.markdown("---")
 
 # Pulsante per scaricare il PDF
    
@@ -242,6 +247,7 @@ with open(pdfReport, "rb") as pdf_file:
         help= '***Save Report in your local drive***'
     )
     
+
 
 
 
