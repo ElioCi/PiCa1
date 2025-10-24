@@ -19,6 +19,15 @@ with st.expander("🆘 Help"):
 
     """)
 
+#    === Controllo accesso ===
+if 'prot' not in st.session_state:
+    st.session_state.prot = False
+    
+if st.session_state.prot == False:
+    st.info('unauthorized access')
+    st.stop()
+    
+
 # === Lettura file CSV ===
 df_temp = pd.read_csv("files/Temperatures.csv", sep= ";")
 df_temp["TempF"] = df_temp["TempF"].astype(int)
@@ -233,5 +242,6 @@ with open(pdfReport, "rb") as pdf_file:
         help= '***Save Report in your local drive***'
     )
     
+
 
 
