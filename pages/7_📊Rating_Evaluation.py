@@ -215,7 +215,7 @@ st.button(label, on_click=toggle_pdf, key="toggle_pdf_btn")
 
 # Visualizza PDF se attivo
 if st.session_state.show_pdf:
-    with open("files/report2.pdf", "rb") as f:
+    with open("static/report2.pdf", "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode("utf-8")
         pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="500" type="application/pdf"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
@@ -242,6 +242,7 @@ with open(pdfReport, "rb") as pdf_file:
         help= '***Save Report in your local drive***'
     )
     
+
 
 
 
