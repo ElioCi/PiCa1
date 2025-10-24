@@ -333,8 +333,9 @@ if st.session_state.export_results:
     st.markdown("<hr style='border: 0.5px solid red;'>", unsafe_allow_html=True)
 
     label = "👁️ Preview Report" if not st.session_state.show_pdf else "❌ Close Preview"
-    st.button(label, on_click=toggle_pdf, key="toggle_pdf_btn")
-
+    #st.button(label, on_click=toggle_pdf, key="toggle_pdf_btn")
+    st.session_state.show_pdf = True
+    
     if st.session_state.show_pdf:
         pdf_path = "files/report1.pdf"
 
@@ -345,6 +346,8 @@ if st.session_state.export_results:
                 file_name="report.pdf",
                 mime="application/pdf"
             )
+            
+    st.markdown("<hr style='border: 0.5px solid red;'>", unsafe_allow_html=True)        
 
     with open(pdfReport, "rb") as pdf_file:
         st.sidebar.download_button(
@@ -354,6 +357,7 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
 
 
