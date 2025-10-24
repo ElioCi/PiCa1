@@ -336,13 +336,14 @@ if st.session_state.export_results:
     st.button(label, on_click=toggle_pdf, key="toggle_pdf_btn")
 
     if st.session_state.show_pdf:
-        st.markdown(
-            """
-            <a href="static/report1.pdf" target="_blank" rel="noopener noreferrer">
-                📄 Open Report
-            </a>
-            """,
-            unsafe_allow_html=True
+        pdf_path = "files/report1.pdf"
+
+        with open(pdf_path, "rb") as f:
+        st.download_button(
+            label="📄 Open Report in a new window",
+            data=f,
+            file_name="report.pdf",
+            mime="application/pdf"
         )
 
     with open(pdfReport, "rb") as pdf_file:
@@ -353,6 +354,7 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
 
 
