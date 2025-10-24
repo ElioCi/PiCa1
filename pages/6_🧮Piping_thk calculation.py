@@ -336,19 +336,25 @@ if st.session_state.export_results:
     st.button(label, on_click=toggle_pdf, key="toggle_pdf_btn")
 
     if st.session_state.show_pdf:
-        with open("files/report1.pdf", "rb") as f:
-            pdf_data = f.read()
+        #with open("files/report1.pdf", "rb") as f:
+            #pdf_data = f.read()
        
-        b64 = base64.b64encode(pdf_data).decode()
+        #b64 = base64.b64encode(pdf_data).decode()
             # base64_pdf = base64.b64encode(f.read()).decode("utf-8")
             #pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="500" type="application/pdf"></iframe>'
             #st.markdown(pdf_display, unsafe_allow_html=True)
 
-        href = f'<a href="data:application/pdf;base64,{b64}" target="_blank">View Report</a>'
-        st.markdown(href, unsafe_allow_html=True)
-
+        #href = f'<a href="data:application/pdf;base64,{b64}" target="_blank">View Report</a>'
+        #st.markdown(href, unsafe_allow_html=True)
+        st.components.v1.html(
+        """
+        <iframe src="/static/report1.pdf" width="100%" height="800" style="border:none;"></iframe>
+        """,
+        height=800,
+        scrolling=True
+        )
         
-    st.markdown("<hr style='border: 1px solid red;'>", unsafe_allow_html=True)
+    #st.markdown("<hr style='border: 1px solid red;'>", unsafe_allow_html=True)
 
     with open(pdfReport, "rb") as pdf_file:
         st.sidebar.download_button(
@@ -358,6 +364,7 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
 
 
