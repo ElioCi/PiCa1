@@ -4,6 +4,15 @@ import pandas as pd
 import csv
 import os
 
+#    === Controllo accesso ===
+if 'prot' not in st.session_state:
+    st.session_state.prot = False
+    
+if st.session_state.prot == False:
+    st.info('unauthorized access')
+    st.stop()
+
+
 # inizializza session_state
 if 'newFlag' not in st.session_state:
     st.session_state.newFlag = 'none'
@@ -125,6 +134,7 @@ else:
 if col3.button('Back to Main'):
     st.switch_page('pages/0_🗂️Main.py')
 # Ritorno a Main
+
 
 
 
