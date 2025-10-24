@@ -337,7 +337,7 @@ if st.session_state.export_results:
 
     if st.session_state.show_pdf:
         with open("files/report1.pdf", "rb") as f:
-            PDFbyte = f.read()
+            pdf_data = f.read()
        
         b64 = base64.b64encode(pdf_data).decode()
             # base64_pdf = base64.b64encode(f.read()).decode("utf-8")
@@ -358,6 +358,7 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
 
 
