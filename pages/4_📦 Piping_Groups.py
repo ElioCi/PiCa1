@@ -18,6 +18,13 @@ with st.expander("🆘 Help"):
       click on ℹ️ info button menu]
     """)
 
+if 'prot' not in st.session_state:
+    st.session_state.prot = False
+    
+if st.session_state.prot == False:
+    st.info('unauthorized access')
+    st.stop()
+
 # === Parametro: numero massimo di gruppi ===
 n_max = 4
 
@@ -230,5 +237,6 @@ if checked == True:
         df_finale.to_csv("files/piping_groups.csv", index=False)
         st.success("Piping groups saved successfully!")
         #st.rerun()
+
 
 
