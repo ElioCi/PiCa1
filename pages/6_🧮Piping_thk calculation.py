@@ -343,7 +343,7 @@ if st.session_state.export_results:
             st.download_button(
                 label="📄 Open Report in a new window",
                 data=f,
-                file_name="report.pdf",
+                file_name="ReportPipingThk.pdf",
                 mime="application/pdf"
             )
             
@@ -357,6 +357,7 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
 
 
