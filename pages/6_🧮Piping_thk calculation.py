@@ -5,6 +5,15 @@ import json
 import os
 import base64
 
+#    === Controllo accesso ===
+if 'prot' not in st.session_state:
+    st.session_state.prot = False
+    
+if st.session_state.prot == False:
+    st.info('unauthorized access')
+    st.stop()
+    
+
 # -------------------------------
 # Funzioni di utilità
 # -------------------------------
@@ -342,5 +351,6 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
 
