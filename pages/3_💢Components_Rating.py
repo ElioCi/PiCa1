@@ -7,6 +7,15 @@ st.set_page_config(page_title="Flange Rating Viewer")
 st.title("💢 Components Pressure Rating")
 st.subheader("acc. to ASME B16.34 and B16.5 - 2025 ")
 
+#    === Controllo accesso ===
+if 'prot' not in st.session_state:
+    st.session_state.prot = False
+    
+if st.session_state.prot == False:
+    st.info('unauthorized access')
+    st.stop()
+    
+
 st.markdown(
     "<h6 style='color:red; font-weight:normal;'>=== Read-only access for viewing and querying ===</h6>",
     unsafe_allow_html=True
@@ -89,3 +98,4 @@ df_riga_unica.insert(0, "Temp_°C", round(temp_input, 1))  # Inserisce la colonn
 st.markdown(f"### 📈 Interpolated Pressure Values (bar) at {temp_input:.1f} °C:")
 
 st.dataframe(df_riga_unica, use_container_width=True, hide_index= True)
+
