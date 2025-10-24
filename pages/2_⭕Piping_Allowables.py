@@ -7,6 +7,15 @@ st.set_page_config(page_title="Piping_Allowables")
 st.title('⭕Piping materials allowables')
 st.subheader('acc. to ASME B31.3 - 2024')
 
+#    === Controllo accesso ===
+if 'prot' not in st.session_state:
+    st.session_state.prot = False
+    
+if st.session_state.prot == False:
+    st.info('unauthorized access')
+    st.stop()
+    
+
 st.markdown(
     "<h6 style='color:red; font-weight:normal;'>=== Read-only access for viewing and querying ===</h6>",
     unsafe_allow_html=True
@@ -114,6 +123,7 @@ if V_interp is not None:
         st.warning("Y value not available for interpolation at this temperature.")
 else:
     st.error("Temperature out of range for this material.")
+
 
 
 
