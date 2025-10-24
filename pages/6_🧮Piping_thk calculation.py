@@ -337,10 +337,22 @@ if st.session_state.export_results:
 
     if st.session_state.show_pdf:
         with open("files/report1.pdf", "rb") as f:
-            base64_pdf = base64.b64encode(f.read()).decode("utf-8")
-            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="500" type="application/pdf"></iframe>'
-            st.markdown(pdf_display, unsafe_allow_html=True)
 
+            PDFbyte = f.read()
+            base64_pdf = base64.b64encode(PDFbyte).decode("utf-8")
+            # base64_pdf = base64.b64encode(f.read()).decode("utf-8")
+            #pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="500" type="application/pdf"></iframe>'
+            #st.markdown(pdf_display, unsafe_allow_html=True)
+        pdf_display = f"""
+        <iframe
+            src="data:application/pdf;base64,{base64_pdf}"
+            width="100%"
+            height="800"
+            style="border: none;"
+        ></iframe>
+        """
+        st.components.v1.html(pdf_display, height=800, scrolling=True)
+        
     st.markdown("<hr style='border: 1px solid red;'>", unsafe_allow_html=True)
 
     with open(pdfReport, "rb") as pdf_file:
@@ -351,6 +363,7 @@ if st.session_state.export_results:
             mime="application/pdf",
             help='***Save Report in your local drive***'
         )
+
 
 
 
