@@ -17,6 +17,15 @@ with st.expander("🆘 Help"):
       click on ℹ️ info button menu]
     """)
 
+#    === Controllo accesso ===
+if 'prot' not in st.session_state:
+    st.session_state.prot = False
+    
+if st.session_state.prot == False:
+    st.info('unauthorized access')
+    st.stop()
+
+
 # === Parametro: numero massimo di gruppi ===
 n_max = 3
 
@@ -111,4 +120,5 @@ if checked == True:
     if st.button("💾 Save groups"):
         df_finaleComp.to_csv(file_path, index=False)
         st.success("Component groups saved successfully!")
+
 
