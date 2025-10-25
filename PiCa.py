@@ -9,14 +9,6 @@ import time
 
 st.set_page_config(page_title="Pica001 App", page_icon="⭕")
 
-if 'start_done' not in st.session_state:
-    st.session_state.start_done = False
-
-if not st.session_state.start_done:
-    st.session_state.start_done = True
-    st.switch_page("pages/0_🗂️Main.py")   # o il nome della pagina principale
-else:
-    st.switch_page("pages/0_🗂️Main.py")
     
 PAGE_KEY = "visited_immissione_dati"
 
@@ -133,6 +125,7 @@ button_html = """
 st.markdown(button_html, unsafe_allow_html=True)
  
 print ('prot', st.session_state.prot)
+
 
 
 
