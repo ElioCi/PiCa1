@@ -12,8 +12,8 @@ st.set_page_config(page_title="Pica001 App", page_icon="⭕")
 PAGE_KEY = "visited_immissione_dati"
 
 if st.session_state.get(PAGE_KEY):
-    st.error("⚠️ This page is visible only the first time.")
-    st.switch_page("pages/0_🗂️Main.py")
+    st.error("⚠️ This page is visible only the first run. Please select another menu voice.")
+    st.stop()
 
 st.session_state[PAGE_KEY] = True
 
@@ -124,6 +124,7 @@ button_html = """
 st.markdown(button_html, unsafe_allow_html=True)
  
 print ('prot', st.session_state.prot)
+
 
 
 
