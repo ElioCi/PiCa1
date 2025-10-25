@@ -11,6 +11,9 @@ st.set_page_config(page_title="Pica001 App", page_icon="⭕")
 if 'prot' not in st.session_state or not st.session_state.prot:
     st.session_state.prot = False
 
+if st.session_state.prot == True:
+    st.switch_page("pages/main.py")
+    
 # Chiave segreta utilizzata per firmare il token
 SECRET_KEY = 'EC1'
 
@@ -113,5 +116,6 @@ button_html = """
 st.markdown(button_html, unsafe_allow_html=True)
  
 print ('prot', st.session_state.prot)
+
 
 
