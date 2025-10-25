@@ -8,6 +8,16 @@ from jwt import PyJWTError
 import time
 
 st.set_page_config(page_title="Pica001 App", page_icon="⭕")
+
+PAGE_KEY = "visited_immissione_dati"
+
+if st.session_state.get(PAGE_KEY):
+    st.error("⚠️ Questa pagina è accessibile solo alla prima visita.")
+    st.stop()
+
+st.session_state[PAGE_KEY] = True
+
+
 if 'prot' not in st.session_state or not st.session_state.prot:
     st.session_state.prot = False
 
@@ -114,6 +124,7 @@ button_html = """
 st.markdown(button_html, unsafe_allow_html=True)
  
 print ('prot', st.session_state.prot)
+
 
 
 
