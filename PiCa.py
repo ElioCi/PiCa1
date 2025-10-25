@@ -13,7 +13,7 @@ PAGE_KEY = "visited_immissione_dati"
 
 if st.session_state.get(PAGE_KEY):
     st.error("⚠️ This page is visible only the first time.")
-    st.switch_page("pages/main.py")
+    st.switch_page("pages/0_🗂️Main.py")
 
 st.session_state[PAGE_KEY] = True
 
@@ -124,6 +124,7 @@ button_html = """
 st.markdown(button_html, unsafe_allow_html=True)
  
 print ('prot', st.session_state.prot)
+
 
 
 
